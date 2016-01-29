@@ -1,11 +1,19 @@
 function Pizza (pizzaSize) {
   this.pizzaSize = pizzaSize;
 };
-Pizza.prototype.sizePrice = function (sizeOfPizza) {
+
+Pizza.prototype.sizePrice = function(sizeOfPizza) {
   var priceforSizeOfPizza = 0;
-  if (sizeOfPizza === "large") {
-    //priceforSizeOfPizza = 15;
-    return 15;
+  if (sizeOfPizza === "small") {
+    priceforSizeOfPizza = 5;
+  }
+  else if(sizeOfPizza === "medium") {
+    priceforSizeOfPizza = 10;
   };
-  //return priceforSizeOfPizza;
+  // else if (sizeOfPizza === "large") {
+  //   //priceforSizeOfPizza = 15;
+  //   priceforSizeOfPizza = 15;
+  // };
+
+  return priceforSizeOfPizza;
 };
