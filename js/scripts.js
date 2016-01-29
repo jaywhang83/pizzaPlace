@@ -17,10 +17,15 @@ Pizza.prototype.sizePrice = function(sizeOfPizza) {
 };
 
 
-function ToppingChoice(topping) {
+function Toppings(topping) {
+  // var choosenTopping = [];
   this.topping = topping;
+  // choosenTopping.push(topping);
+  // return choosenTopping;
 };
-// toppings = function(choosenTopping) {
-//   var toppings = [];
-//   toppings.push(this);
-// }
+
+Toppings.prototype.toppingPrice = function (toppingSelected) {
+  var choosenTopping = [];
+  choosenTopping.push(toppingSelected);
+  return choosenTopping;
+};

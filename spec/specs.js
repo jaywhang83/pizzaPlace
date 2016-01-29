@@ -17,9 +17,13 @@ describe("Pizza", function(){
   });
 });
 
-describe("ToppingChoice", function () {
+describe("Toppings", function () {
   it("returns a topping choosen by user" ,function()  {
-    var testTopping = new ToppingChoice("canadian bacon");
+    var testTopping = new Toppings("canadian bacon");
     expect(testTopping.topping).to.equal("canadian bacon");
   });
+  it("returns a toppings choosen by uer", function() {
+    var testTopping = new Toppings("canadian bacon");
+    expect(testTopping.toppingPrice("canadian bacon")).to.equal(["canadian bacon"]);
+  })
 });
