@@ -24,6 +24,6 @@ describe("Toppings", function () {
   });
   it("returns a toppings choosen by uer", function() {
     var testTopping = new Toppings("canadian bacon");
-    expect(testTopping.toppingPrice("canadian bacon")).to.equal(["canadian bacon"]);
+    expect(testTopping.toppingPrice("canadian bacon")).to.eql(["canadian bacon"]);
   })
 });
