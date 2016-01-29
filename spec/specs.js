@@ -16,3 +16,10 @@ describe("Pizza", function(){
     expect(testPizza.sizePrice("large")).to.equal(15);
   });
 });
+
+describe("ToppingChoice", function () {
+  it("returns a topping choosen by user" ,function()  {
+    var testTopping = new ToppingChoice("canadian bacon");
+    expect(testTopping.topping).to.equal("canadian bacon");
+  });
+});
