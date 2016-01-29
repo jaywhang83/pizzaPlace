@@ -18,14 +18,20 @@ Pizza.prototype.sizePrice = function(sizeOfPizza) {
 
 
 function Toppings(topping) {
-  // var choosenTopping = [];
   this.topping = topping;
-  // choosenTopping.push(topping);
-  // return choosenTopping;
 };
 
-Toppings.prototype.toppingPrice = function (toppingSelected) {
-  var choosenTopping = [];
-  choosenTopping.push(toppingSelected);
-  return choosenTopping;
+Toppings.prototype.totalToppingPrice = function (toppingSelected) {
+  var choosenToppings = [];
+  var toppingPrice = 0;
+  choosenToppings.push(toppingSelected);
+  return choosenToppings;
 };
+
+// for (var i = 0 ; i <= choosenToppings.length; i++) {
+//
+//     if (choosenToppings[i] === "pepperoni" || choosenToppings[i] === "canandian bacon" || choosenToppings[i] === "italian sausage"){
+//       toppingPrice += 2;
+//     }
+// }
+// return toppingPrice;
