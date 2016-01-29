@@ -22,8 +22,12 @@ describe("Toppings", function () {
     var testTopping = new Toppings("canadian bacon");
     expect(testTopping.topping).to.equal("canadian bacon");
   });
-  it("returns a toppings choosen by uer", function() {
+  it("returns a toppings choosen by user", function() {
     var testTopping = new Toppings("canadian bacon");
-    expect(testTopping.totalToppingPrice("canadian bacon")).to.eql(["canadian bacon"]);
-  })
+    expect(testTopping.totalToppings("canadian bacon")).to.eql(["canadian bacon"]);
+  });
+  it("returns price of the toppings selected", function() {
+    var testTopping = new Toppings("canadian bacon");
+    expect(testTopping.toppingsPrice(["canadian bacon", "mushroo"])).to.equal(2);
+  });
 });

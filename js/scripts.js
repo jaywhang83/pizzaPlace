@@ -21,17 +21,18 @@ function Toppings(topping) {
   this.topping = topping;
 };
 
-Toppings.prototype.totalToppingPrice = function (toppingSelected) {
+Toppings.prototype.totalToppings = function (toppingSelected) {
   var choosenToppings = [];
-  var toppingPrice = 0;
   choosenToppings.push(toppingSelected);
   return choosenToppings;
 };
 
-// for (var i = 0 ; i <= choosenToppings.length; i++) {
-//
-//     if (choosenToppings[i] === "pepperoni" || choosenToppings[i] === "canandian bacon" || choosenToppings[i] === "italian sausage"){
-//       toppingPrice += 2;
-//     }
-// }
-// return toppingPrice;
+Toppings.prototype.toppingsPrice = function (totalselectedToppings) {
+  var toppingPrice = 0;
+  totalselectedToppings.forEach(function (topping) {
+    if (topping === "pepperoni" || topping === "canadian bacon" || topping === "italian sausage") {
+      toppingPrice += 2;
+    }
+  });
+  return toppingPrice;
+};
