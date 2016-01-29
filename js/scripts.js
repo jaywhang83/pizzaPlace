@@ -30,12 +30,15 @@ Toppings.prototype.totalToppings = function (toppingSelected) {
 Toppings.prototype.toppingsPrice = function (totalselectedToppings) {
   var toppingPrice = 0;
   totalselectedToppings.forEach(function (topping) {
-    if (topping === "pepperoni" || topping === "canadian bacon" || topping === "italian sausage") {
+    if (topping === "mushroom" || topping === "onion") {
+      toppingPrice += 1;
+    }
+    else if (topping === "pepperoni" || topping === "canadian bacon" || topping === "italian sausage") {
       toppingPrice += 2;
     }
-    else if (topping === "mushroom" || topping === "onion") {
-      toppingPrice += 1; 
-    }
+    else {
+      toppingPrice += 3;
+    }; 
   });
   return toppingPrice;
 };
