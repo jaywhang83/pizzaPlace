@@ -24,6 +24,7 @@ function Toppings(topping) {
 Toppings.prototype.totalToppings = function (toppingSelected) {
   var choosenToppings = [];
   choosenToppings.push(toppingSelected);
+  console.log("toppint array is: " + choosenToppings);
   return choosenToppings;
 };
 
@@ -52,3 +53,22 @@ function priceOfSinglePizza(pizzaSizePrice, toppingPrice) {
 function totalPrice(priceOfAPizza, quantity) {
   return priceOfAPizza * quantity;
 }
+
+
+$(document).ready(function() {
+    $("input.size").click(function () {
+      var size = new Pizza(this.value);
+      var pricePerSize = size.sizePrice(size.pizzaSize);
+      console.log(size);
+      console.log(pricePerSize);
+    });
+    $("input.topping").click(function () {
+      var selectedtoppings = [];
+      var topping = this.value;
+      selectedtoppings.push(topping);
+      //selectedtoppings += topping;
+      console.log(selectedtoppings);
+      // var totalToppings = topping.totalToppings(topping.topping);
+
+    });
+});
