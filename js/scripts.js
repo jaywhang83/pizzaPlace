@@ -38,7 +38,13 @@ Toppings.prototype.toppingsPrice = function (totalselectedToppings) {
     }
     else {
       toppingPrice += 3;
-    }; 
+    };
   });
   return toppingPrice;
 };
+
+function priceOfSinglePizza(pizzaSizePrice, toppingPrice) {
+  var priceOfSinglePizza = 0;
+  priceOfSinglePizza = pizzaSizePrice + toppingPrice;
+  return priceOfSinglePizza;
+}

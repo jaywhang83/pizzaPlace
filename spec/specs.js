@@ -31,5 +31,12 @@ describe("Toppings", function () {
     expect(testTopping.toppingsPrice(["mushroom"])).to.equal(1);
     expect(testTopping.toppingsPrice(["canadian bacon"])).to.equal(2);
     expect(testTopping.toppingsPrice(["pineapple"])).to.equal(3);
+    expect(testTopping.toppingsPrice(["canadian bacon" , "mushroom", "pineapple"])).to.equal(6);
+  });
+});
+
+describe("priceOfSinglePizza", function () {
+  it("returns a total price of a single pizza" ,function()  {
+    expect(priceOfSinglePizza(10, 6)).to.equal(16);
   });
 });
