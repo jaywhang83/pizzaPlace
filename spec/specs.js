@@ -28,6 +28,7 @@ describe("Toppings", function () {
   });
   it("returns price of the toppings selected", function() {
     var testTopping = new Toppings("canadian bacon");
-    expect(testTopping.toppingsPrice(["canadian bacon", "mushroo"])).to.equal(2);
+    expect(testTopping.toppingsPrice(["canadian bacon"])).to.equal(2);
+    expect(testTopping.toppingsPrice(["mushroom"])).to.equal(1);
   });
 });

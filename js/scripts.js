@@ -33,6 +33,9 @@ Toppings.prototype.toppingsPrice = function (totalselectedToppings) {
     if (topping === "pepperoni" || topping === "canadian bacon" || topping === "italian sausage") {
       toppingPrice += 2;
     }
+    else if (topping === "mushroom" || topping === "onion") {
+      toppingPrice += 1; 
+    }
   });
   return toppingPrice;
 };
