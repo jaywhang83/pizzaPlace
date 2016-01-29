@@ -40,3 +40,9 @@ describe("priceOfSinglePizza", function () {
     expect(priceOfSinglePizza(10, 6)).to.equal(16);
   });
 });
+
+describe("priceOfSinglePizza", function () {
+  it("returns a total price of an order" ,function()  {
+    expect(totalPrice(16, 2)).to.equal(32);
+  });
+});

@@ -48,3 +48,7 @@ function priceOfSinglePizza(pizzaSizePrice, toppingPrice) {
   priceOfSinglePizza = pizzaSizePrice + toppingPrice;
   return priceOfSinglePizza;
 }
+
+function totalPrice(priceOfAPizza, quantity) {
+  return priceOfAPizza * quantity;
+}
