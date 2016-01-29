@@ -11,9 +11,8 @@ describe("Pizza", function(){
     var testPizza =  new Pizza("medium");
     expect(testPizza.sizePrice("medium")).to.equal(10);
   });
-  // it("returns a price of a large pizza", function () {
-  //   var testPizza = new Pizza("large");
-  //   expect(testPizza.sizePrice("large")).to.equal(15);
-  // });
-
+  it("returns a price of a large pizza", function () {
+    var testPizza = new Pizza("large");
+    expect(testPizza.sizePrice("large")).to.equal(15);
+  });
 });

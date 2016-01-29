@@ -9,11 +9,11 @@ Pizza.prototype.sizePrice = function(sizeOfPizza) {
   }
   else if(sizeOfPizza === "medium") {
     priceforSizeOfPizza = 10;
+  }
+  else if (sizeOfPizza === "large") {
+    //priceforSizeOfPizza = 15;
+    priceforSizeOfPizza = 15;
   };
-  // else if (sizeOfPizza === "large") {
-  //   //priceforSizeOfPizza = 15;
-  //   priceforSizeOfPizza = 15;
-  // };
 
   return priceforSizeOfPizza;
 };
