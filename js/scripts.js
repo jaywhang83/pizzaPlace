@@ -58,20 +58,21 @@ $(document).ready(function() {
          selectedtoppings.pop(topping);
         }
       }
-       return selectedtoppings
-       selectedtoppings.forEach(function(index) {
-         if
-       })
+      return selectedtoppings
   });
 
   var toppingPrice = 0;
   $("#continue").click(function() {
     toppingPrice = toppingsPrice(selectedtoppings);
+    selectedtoppings.forEach(function(index) {
+      $("ul").append("<li>" + index + "</li>")
+    });
   });
 
   $("#checkOut").click(function() {
     var qty = parseInt($("input#qty").val());
     var total = totalPrice(pricePerSize, toppingPrice, qty);
-
+    console.log(total);
+    $("#total").text("$"+total);
   });
 });
