@@ -16,19 +16,7 @@ Pizza.prototype.sizePrice = function(sizeOfPizza) {
   return priceforSizeOfPizza;
 };
 
-
-function Toppings(topping) {
-  this.topping = topping;
-};
-
-Toppings.prototype.totalToppings = function (toppingSelected) {
-  var choosenToppings = [];
-  choosenToppings.push(toppingSelected);
-  console.log("toppint array is: " + choosenToppings);
-  return choosenToppings;
-};
-
-Toppings.prototype.toppingsPrice = function (totalselectedToppings) {
+var toppingsPrice = function (totalselectedToppings) {
   var toppingPrice = 0;
   totalselectedToppings.forEach(function (topping) {
     if (topping === "mushroom" || topping === "onion") {
@@ -44,31 +32,47 @@ Toppings.prototype.toppingsPrice = function (totalselectedToppings) {
   return toppingPrice;
 };
 
-function priceOfSinglePizza(pizzaSizePrice, toppingPrice) {
-  var priceOfSinglePizza = 0;
-  priceOfSinglePizza = pizzaSizePrice + toppingPrice;
-  return priceOfSinglePizza;
-}
-
-function totalPrice(priceOfAPizza, quantity) {
-  return priceOfAPizza * quantity;
+function totalPrice(pizzaSizePrice, toppingPrice, priceOfAPizza, quantity) {
+  return (pizzaSizePrice + toppingPrice) * quantity;
 }
 
 
 $(document).ready(function() {
+      var pricePerSize = 0;
     $("input.size").click(function () {
       var size = new Pizza(this.value);
-      var pricePerSize = size.sizePrice(size.pizzaSize);
-      console.log(size);
-      console.log(pricePerSize);
+      pricePerSize = size.sizePrice(size.pizzaSize);
     });
-    $("input.topping").click(function () {
-      var selectedtoppings = [];
-      var topping = this.value;
-      selectedtoppings.push(topping);
-      //selectedtoppings += topping;
-      console.log(selectedtoppings);
-      // var totalToppings = topping.totalToppings(topping.topping);
 
-    });
+    var selectedtoppings = [];
+    $("input[type='checkbox']").click(function () {
+      var topping = $(this).val();
+      if($(this).is(":checked")) {
+        selectedtoppings.push(topping);
+      }
+      else if (!($(this).is(":checked"))) {
+        var index = selectedtoppings.indexOf(topping);
+        selectedtoppings.splice(index, index);
+        if (selectedtoppings.includes(topping)) {
+         selectedtoppings.pop(topping);
+        }
+      }
+      console.log(selectedtoppings);
+       return selectedtoppings
+  });
+
+  var toppingPrice = 0;
+  $("#continue").click(function() {
+    console.log(pricePerSize);
+    toppingPrice = toppingsPrice(selectedtoppings);
+    console.log(toppingPrice);
+  });
+
+  $("#checkOut").click(function() {
+    var qty = parseInt($("input#qty").val());
+    console.log(qty);
+    var total = totalPrice(pricePerSize, toppingPrice, qty);
+    console.log(total);
+  });
+
 });

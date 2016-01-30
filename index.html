@@ -28,27 +28,49 @@
   <div class = "jumbotron">
     <div id = "toppings">
       <div class="checkbox-inline">
-        <label><input type="checkbox" value="pepperoni" class = "topping">Pepperoni</label>
+        <label><input type="checkbox" value="pepperoni" name = "topping">Pepperoni</label>
       </div>
       <div class="checkbox-inline">
-        <label><input type="checkbox" value="canadian bacon" class = "topping">Canadian Bacon</label>
+        <label><input type="checkbox" value="canadian bacon" name = "topping">Canadian Bacon</label>
       </div>
       <div class="checkbox-inline">
-        <label><input type="checkbox" value="italian sausage" class = "topping">Italian Sausage</label>
+        <label><input type="checkbox" value="italian sausage" name = "topping">Italian Sausage</label>
       </div>
       <div class="checkbox-inline">
-        <label><input type="checkbox" value="pineapple" class = "topping">Pineapple</label>
+        <label><input type="checkbox" value="pineapple" name = "topping">Pineapple</label>
       </div>
       <div class="checkbox-inline">
-        <label><input type="checkbox" value="mushroom" class = "topping">Mushroom</label>
+        <label><input type="checkbox" value="mushroom" name = "topping">Mushroom</label>
       </div>
       <div class="checkbox-inline">
-        <label><input type="checkbox" value="onion" class = "topping">Onion</label>
+        <label><input type="checkbox" value="onion" name = "topping">Onion</label>
       </div>
+       <button type="submit" class="btn btn-primary btn-lg" id = "continue">Continue</button>
     </div>
   </div>
 
   <div class ="jumbotron">
+    <div class = "container">
+      <div class ="row">
+        <div class = "col-sm-4">
+          <h2>Your pizza: </h2>
+          <p>size: <br>
+            <span id = "size"></span>
+          </p>
+          <p>Toppings: </p>
+          <ul id = "toppings">
+
+          </ul>
+        </div>
+        <div class = "col-sm-4 col-sm-push-4">
+          <form>
+            <label for="usr">Quantity:</label>
+            <input type="text" class="form-control" id="qty">
+          </form>
+           <button type="click" class="btn btn-primary btn-lg" id = "checkOut">Check Out</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </body>
