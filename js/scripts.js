@@ -32,7 +32,7 @@ var toppingsPrice = function (totalselectedToppings) {
   return toppingPrice;
 };
 
-function totalPrice(pizzaSizePrice, toppingPrice, priceOfAPizza, quantity) {
+function totalPrice(pizzaSizePrice, toppingPrice, quantity) {
   return (pizzaSizePrice + toppingPrice) * quantity;
 }
 
@@ -70,7 +70,6 @@ $(document).ready(function() {
 
   $("#checkOut").click(function() {
     var qty = parseInt($("input#qty").val());
-    console.log(qty);
     var total = totalPrice(pricePerSize, toppingPrice, qty);
     console.log(total);
   });
