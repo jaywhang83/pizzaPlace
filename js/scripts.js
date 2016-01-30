@@ -38,9 +38,10 @@ function totalPrice(pizzaSizePrice, toppingPrice, quantity) {
 
 
 $(document).ready(function() {
-      var pricePerSize = 0;
+    var pricePerSize = 0;
     $("input.size").click(function () {
       var size = new Pizza(this.value);
+      $("#size").text(size.pizzaSize);
       pricePerSize = size.sizePrice(size.pizzaSize);
     });
 
@@ -57,21 +58,20 @@ $(document).ready(function() {
          selectedtoppings.pop(topping);
         }
       }
-      console.log(selectedtoppings);
        return selectedtoppings
+       selectedtoppings.forEach(function(index) {
+         if
+       })
   });
 
   var toppingPrice = 0;
   $("#continue").click(function() {
-    console.log(pricePerSize);
     toppingPrice = toppingsPrice(selectedtoppings);
-    console.log(toppingPrice);
   });
 
   $("#checkOut").click(function() {
     var qty = parseInt($("input#qty").val());
     var total = totalPrice(pricePerSize, toppingPrice, qty);
-    console.log(total);
-  });
 
+  });
 });

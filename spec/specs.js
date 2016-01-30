@@ -17,32 +17,14 @@ describe("Pizza", function(){
   });
 });
 
-describe("Toppings", function () {
-  it("returns a topping choosen by user" ,function()  {
-    var testTopping = new Toppings("canadian bacon");
-    expect(testTopping.topping).to.equal("canadian bacon");
-  });
-  it("returns a toppings choosen by user", function() {
-    var testTopping = new Toppings("canadian bacon");
-    expect(testTopping.totalToppings("canadian bacon")).to.eql(["canadian bacon"]);
-  });
-  it("returns price of the toppings selected", function() {
-    var testTopping = new Toppings("canadian bacon");
-    expect(testTopping.toppingsPrice(["mushroom"])).to.equal(1);
-    expect(testTopping.toppingsPrice(["canadian bacon"])).to.equal(2);
-    expect(testTopping.toppingsPrice(["pineapple"])).to.equal(3);
-    expect(testTopping.toppingsPrice(["canadian bacon" , "mushroom", "pineapple"])).to.equal(6);
-  });
-});
-
-describe("priceOfSinglePizza", function () {
+describe("toppingsPrice", function () {
   it("returns a total price of a single pizza" ,function()  {
-    expect(priceOfSinglePizza(10, 6)).to.equal(16);
+    expect(toppingsPrice(["mushroom, candian bacon"])).to.equal(3);
   });
 });
 
 describe("priceOfSinglePizza", function () {
   it("returns a total price of an order" ,function()  {
-    expect(totalPrice(16, 2)).to.equal(32);
+    expect(totalPrice(10, 6, 2)).to.equal(32);
   });
 });
