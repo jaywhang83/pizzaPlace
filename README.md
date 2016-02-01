@@ -14,7 +14,7 @@ _Web site for a pizza shop._
 
 ## Known Bugs
 
-Check boxes, radio button, and quantity input field does not reset.
+n/a
 
 ## Support and contact details
 

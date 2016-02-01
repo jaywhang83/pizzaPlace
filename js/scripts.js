@@ -97,8 +97,19 @@ $(document).ready(function() {
     count++;
     shoppingCart[count] = {size: pizzaSize, toppings: selectedToppings, quantity: qty, "price of this pizza": pricePerOrder};
     selectedToppings = [];
+    $("input[type = 'radio']").prop("checked", false);
+    $("input[type = 'checkbox']").prop("checked", false);
     $("#size").text("");
-    $("input#qty").text("");
+    $("input#qty").val("");
+    $("#totalThisOrder").text("");
+    $("ul li").remove();
+  });
+
+  $("#checkOut").click(function() {
+    $("input[type = 'radio']").prop("checked", false);
+    $("input[type = 'checkbox']").prop("checked", false);
+    $("#size").text("");
+    $("input#qty").val("");
     $("#totalThisOrder").text("");
     $("ul li").remove();
   });
