@@ -4,27 +4,44 @@ describe("Pizza", function(){
     expect(testPizza.pizzaSize).to.equal("small");
   });
   it("returns a price of a small pizza", function () {
-    var testPizza = new Pizza("small");
-    expect(testPizza.sizePrice("small")).to.equal(5);
+    var testPizza = new Pizza("small", ["mushroom", "canadian bacon"]);
+    expect(testPizza.priceOfPizza()).to.equal(8);
   });
-  it("returns a price of a medium pizza", function () {
-    var testPizza =  new Pizza("medium");
-    expect(testPizza.sizePrice("medium")).to.equal(10);
-  });
-  it("returns a price of a large pizza", function () {
-    var testPizza = new Pizza("large");
-    expect(testPizza.sizePrice("large")).to.equal(15);
-  });
-});
-
-describe("toppingsPrice", function () {
   it("returns a total price of a single pizza" ,function()  {
-    expect(toppingsPrice(["mushroom, candian bacon"])).to.equal(3);
+    var testPizza = new Pizza("small", ["mushroom", "canadian bacon"]);
+    var newPizza = testPizza.priceOfPizza();
+    expect(calculatePricePerOrder(newPizza, 2)).to.equal(16);
   });
 });
 
-describe("priceOfSinglePizza", function () {
-  it("returns a total price of an order" ,function()  {
-    expect(totalPrice(10, 6, 2)).to.equal(32);
+describe("orderList", function () {
+  it("returns a list of pizz order" ,function()  {
+    var shoppingCart = {
+                        1:{size:" small",
+                          toppings: ["mushroom", "canadian bacon"],
+                          quantity: 1,
+                          "price of this pizza": 8}
+                        };
+    expect(orderList(shoppingCart)).to.equal("Order number 1",
+                                              "1 size:  small",
+                                              "toppings: mushroom,canadian bacon",
+                                              "quantity: 1",
+                                              "price of this pizza: 8");
+  });
+});
+
+describe("orderTotal", function () {
+  it("returns total price of an order" ,function()  {
+    var shoppingCart = {
+                        1:{size:" small",
+                          toppings: ["mushroom", "canadian bacon"],
+                          quantity: 1,
+                          "price of this pizza": 8},
+                        2:{size:" small",
+                          toppings: ["mushroom", "canadian bacon"],
+                          quantity: 2,
+                          "price of this pizza": 16}
+                        };
+    expect(orderTotal(shoppingCart)).to.equal(24);
   });
 });

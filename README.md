@@ -14,7 +14,7 @@ _Web site for a pizza shop._
 
 ## Known Bugs
 
-Front-end part of the site is not finished. Work in progress.
+Check boxes, radio button, and quantity input field does not reset.
 
 ## Support and contact details
 

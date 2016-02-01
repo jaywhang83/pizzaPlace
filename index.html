@@ -5,51 +5,72 @@
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-2.2.0.js"></script>
   <script src="js/scripts.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <title>The Pizza Place</title>
 </head>
 
 <body>
-  <div class ="jumbotron">
+  <div class ="jumbotron heading">
     <h1>The Pizza Place</h1>
   </div>
 <div class = "container">
-  <div class = "jumbotron">
-    <div class="radio-inline">
-      <label><input type="radio" name="optradio" value ="small" class = "size">Small</label>
-    </div>
-    <div class="radio-inline">
-      <label><input type="radio" name="optradio" value = "medium" class = "size">Medium</label>
-    </div>
-    <div class="radio-inline">
-      <label><input type="radio" name="optradio" value = "large" class = "size">Large</label>
-    </div>
+  <div class = "jumbotron sizeChoice">
+    <form>
+      <div class="radio-inline">
+        <label><input type="radio" name="optradio" value ="small" class = "size">Small</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" name="optradio" value = "medium" class = "size">Medium</label>
+      </div>
+      <div class="radio-inline">
+        <label><input type="radio" name="optradio" value = "large" class = "size">Large</label>
+      </div>
+    </form>
   </div>
 
-  <div class = "jumbotron">
+  <div class = "jumbotron choices">
     <div id = "toppings">
-      <div class="checkbox-inline">
-        <label><input type="checkbox" value="pepperoni" name = "topping">Pepperoni</label>
+        <div class = "row">
+          <div class = "col-md-8">
+            <div class = "row">
+              <div class = "col-sm-6">
+                <div class="checkbox">
+                  <label><input type="checkbox" value="pepperoni" name = "topping">Pepperoni</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="canadian bacon" name = "topping">Canadian Bacon</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="italian sausage" name = "topping">Italian Sausage</label>
+                </div>
+              </div>
+              <div class = "col-sm-6">
+                <div class="checkbox">
+                  <label><input type="checkbox" value="pineapple" name = "topping">Pineapple</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="mushroom" name = "topping">Mushroom</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="onion" name = "topping">Onion</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class = "col-md-4">
+            <label for="usr">Quantity:</label>
+            <input type="text" class="form-control" id="qty">
+            <div class = "row">
+              <div class = "col-sm-4 col-sm-offset-8">
+                <button type="click" class="btn btn-primary btn-md" id = "continue">Continue</button>
+              </div>
+            </div>
+          </div>
       </div>
-      <div class="checkbox-inline">
-        <label><input type="checkbox" value="canadian bacon" name = "topping">Canadian Bacon</label>
-      </div>
-      <div class="checkbox-inline">
-        <label><input type="checkbox" value="italian sausage" name = "topping">Italian Sausage</label>
-      </div>
-      <div class="checkbox-inline">
-        <label><input type="checkbox" value="pineapple" name = "topping">Pineapple</label>
-      </div>
-      <div class="checkbox-inline">
-        <label><input type="checkbox" value="mushroom" name = "topping">Mushroom</label>
-      </div>
-      <div class="checkbox-inline">
-        <label><input type="checkbox" value="onion" name = "topping">Onion</label>
-      </div>
-       <button type="submit" class="btn btn-primary btn-lg" id = "continue">Continue</button>
     </div>
   </div>
 
-  <div class ="jumbotron">
+  <div class ="jumbotron" id = "result">
     <div class = "container">
       <div class ="row">
         <div class = "col-sm-4">
@@ -63,15 +84,55 @@
           </ul>
         </div>
         <div class = "col-sm-4 col-sm-push-4">
-          <form>
-            <label for="usr">Quantity:</label>
-            <input type="text" class="form-control" id="qty">
-          </form>
-           <button type="click" class="btn btn-primary btn-lg" id = "checkOut">Check Out</button>
-           <div>
-             <p>Your total is: <br><span id = "total"></span></p>
-           </div>
+          <div>
+            <div class = "row">
+              <div class = "col-sm-4">
+                <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal" id = "finishOrder">Finish order</button>
+              </div>
+              <div class = "col-sm-4 col-sm-push-4">
+                <button type="click" class="btn btn-primary btn-lg" id = "orderMore">Order More</button>
+              </div>
+            </div>
+          </div>
+          <div id = "price">
+            <p>Price for this Pizza: <br><span id = "totalThisOrder"></span></p>
+          </div>
         </div>
+      </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Your Order: </h4>
+          </div>
+          <div class="modal-body">
+            <div class ="jumbotron" id = "orderResult">
+              <div class = "container">
+                <h2>Your order: </h2>
+                <br>
+                <div class "row">
+                  <div class = "col-sm-4">
+                    <textarea id = "order">
+                    </textarea>
+                  </div>
+                  <div class = "col-sm-4 col-sm-push-4">
+                    <p>Total Price:
+                      <span id = "total"><span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Check out</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
